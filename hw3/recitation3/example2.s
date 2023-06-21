@@ -1,12 +1,12 @@
 	.text
-	.file	"example1.c"
+	.file	"example2.c"
 	.globl	test                            # -- Begin function test
 	.p2align	4, 0x90
 	.type	test,@function
 test:                                   # @test
 .Lfunc_begin0:
-	.file	0 "/home/xiaxishen/Desktop/MIT6.172/MIT6.172-PerformanceEngineering/hw3/recitation3" "example1.c" md5 0x485bb9ea6931e3d3f398262777904294
-	.loc	0 9 0                           # example1.c:9:0
+	.file	0 "/home/xiaxishen/Desktop/MIT6.172/MIT6.172-PerformanceEngineering/hw3/recitation3" "example2.c" md5 0x31c23e31182425bef06acd74577064d7
+	.loc	0 9 0                           # example2.c:9:0
 	.cfi_startproc
 # %bb.0:
 	#DEBUG_VALUE: test:a <- $rdi
@@ -19,22 +19,27 @@ test:                                   # @test
 	#DEBUG_VALUE: test:a <- $rdi
 	#DEBUG_VALUE: test:b <- $rsi
 	#DEBUG_VALUE: test:i <- 0
-	.loc	0 14 10 prologue_end            # example1.c:14:10
-	vmovdqa	(%rdi,%rax), %ymm0
-	vmovdqa	32(%rdi,%rax), %ymm1
-	vmovdqa	64(%rdi,%rax), %ymm2
-	vmovdqa	96(%rdi,%rax), %ymm3
-	vpaddb	(%rsi,%rax), %ymm0, %ymm0
-	vpaddb	32(%rsi,%rax), %ymm1, %ymm1
-	vpaddb	64(%rsi,%rax), %ymm2, %ymm2
-	vpaddb	96(%rsi,%rax), %ymm3, %ymm3
-	vmovdqa	%ymm0, (%rdi,%rax)
-	vmovdqa	%ymm1, 32(%rdi,%rax)
-	vmovdqa	%ymm2, 64(%rdi,%rax)
-	vmovdqa	%ymm3, 96(%rdi,%rax)
+	.loc	0 18 13 prologue_end            # example2.c:18:13
+	movdqa	(%rsi,%rax), %xmm0
+	movdqa	16(%rsi,%rax), %xmm1
+	.loc	0 18 12 is_stmt 0               # example2.c:18:12
+	pmaxub	(%rdi,%rax), %xmm0
+	pmaxub	16(%rdi,%rax), %xmm1
+	.loc	0 18 10                         # example2.c:18:10
+	movdqa	%xmm0, (%rdi,%rax)
+	movdqa	%xmm1, 16(%rdi,%rax)
+	.loc	0 18 13                         # example2.c:18:13
+	movdqa	32(%rsi,%rax), %xmm0
+	movdqa	48(%rsi,%rax), %xmm1
+	.loc	0 18 12                         # example2.c:18:12
+	pmaxub	32(%rdi,%rax), %xmm0
+	pmaxub	48(%rdi,%rax), %xmm1
+	.loc	0 18 10                         # example2.c:18:10
+	movdqa	%xmm0, 32(%rdi,%rax)
+	movdqa	%xmm1, 48(%rdi,%rax)
 .Ltmp1:
-	.loc	0 13 26                         # example1.c:13:26
-	subq	$-128, %rax
+	.loc	0 15 26 is_stmt 1               # example2.c:15:26
+	addq	$64, %rax
 	cmpq	$65536, %rax                    # imm = 0x10000
 	jne	.LBB0_1
 .Ltmp2:
@@ -42,8 +47,7 @@ test:                                   # @test
 	#DEBUG_VALUE: test:a <- $rdi
 	#DEBUG_VALUE: test:b <- $rsi
 	#DEBUG_VALUE: test:i <- 0
-	.loc	0 16 1                          # example1.c:16:1
-	vzeroupper
+	.loc	0 20 1                          # example2.c:20:1
 	retq
 .Ltmp3:
 .Lfunc_end0:
@@ -261,7 +265,7 @@ test:                                   # @test
 .Linfo_string0:
 	.asciz	"Ubuntu clang version 14.0.0-1ubuntu1" # string offset=0
 .Linfo_string1:
-	.asciz	"example1.c"                    # string offset=37
+	.asciz	"example2.c"                    # string offset=37
 .Linfo_string2:
 	.asciz	"/home/xiaxishen/Desktop/MIT6.172/MIT6.172-PerformanceEngineering/hw3/recitation3" # string offset=48
 .Linfo_string3:

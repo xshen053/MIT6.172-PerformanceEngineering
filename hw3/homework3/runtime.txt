@@ -6,3 +6,13 @@ Elapsed execution time: 0.032019 sec; N: 1024, I: 100000, __OP__: +, __TYPE__: u
 
 make VECTORIZE=1 AVX2=1
 Elapsed execution time: 0.019471 sec; N: 1024, I: 100000, __OP__: +, __TYPE__: uint32_t
+
+Performance formula:
+Speedup Percentage = (Original running time - New running time) / Original running time * 100
+
+Eg. Given that the original running time is 8 seconds and the new running time is 2 seconds:
+
+Speedup Percentage = (8 seconds - 2 seconds) / 8 seconds * 100
+Speedup Percentage = 6 seconds / 8 seconds * 100
+Speedup Percentage = 0.75 * 100
+Speedup Percentage = 75%

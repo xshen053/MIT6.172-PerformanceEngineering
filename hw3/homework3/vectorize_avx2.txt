@@ -1,0 +1,13 @@
+Elapsed execution time: 0.019693 sec; N: 1024, I: 100000, __OP__: +, __TYPE__: uint32_t
+Elapsed execution time: 0.009795 sec; N: 1024, I: 100000, __OP__: +, __TYPE__: uint32_t
+Elapsed execution time: 0.019473 sec; N: 1024, I: 100000, __OP__: +, __TYPE__: uint32_t
+Elapsed execution time: 0.020301 sec; N: 1024, I: 100000, __OP__: +, __TYPE__: uint32_t
+Elapsed execution time: 0.019668 sec; N: 1024, I: 100000, __OP__: +, __TYPE__: uint32_t
+Elapsed execution time: 0.013871 sec; N: 1024, I: 100000, __OP__: +, __TYPE__: uint32_t
+Elapsed execution time: 0.007260 sec; N: 1024, I: 100000, __OP__: +, __TYPE__: uint32_t
+Elapsed execution time: 0.011048 sec; N: 1024, I: 100000, __OP__: +, __TYPE__: uint32_t
+Elapsed execution time: 0.017592 sec; N: 1024, I: 100000, __OP__: +, __TYPE__: uint32_t
+Elapsed execution time: 0.013511 sec; N: 1024, I: 100000, __OP__: +, __TYPE__: uint32_t
+
+Average: 0.0152212
+Performance improvements: 77.55%

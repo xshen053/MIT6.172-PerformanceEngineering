@@ -1,0 +1,12 @@
+Elapsed execution time: 0.076420 sec; N: 1024, I: 100000, __OP__: +, __TYPE__: uint32_t
+Elapsed execution time: 0.044428 sec; N: 1024, I: 100000, __OP__: +, __TYPE__: uint32_t
+Elapsed execution time: 0.073202 sec; N: 1024, I: 100000, __OP__: +, __TYPE__: uint32_t
+Elapsed execution time: 0.076494 sec; N: 1024, I: 100000, __OP__: +, __TYPE__: uint32_t
+Elapsed execution time: 0.048536 sec; N: 1024, I: 100000, __OP__: +, __TYPE__: uint32_t
+Elapsed execution time: 0.076740 sec; N: 1024, I: 100000, __OP__: +, __TYPE__: uint32_t
+Elapsed execution time: 0.070909 sec; N: 1024, I: 100000, __OP__: +, __TYPE__: uint32_t
+Elapsed execution time: 0.078085 sec; N: 1024, I: 100000, __OP__: +, __TYPE__: uint32_t
+Elapsed execution time: 0.075337 sec; N: 1024, I: 100000, __OP__: +, __TYPE__: uint32_t
+Elapsed execution time: 0.057874 sec; N: 1024, I: 100000, __OP__: +, __TYPE__: uint32_t
+
+Average: 0.067803

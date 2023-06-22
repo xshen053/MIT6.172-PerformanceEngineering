@@ -46,6 +46,20 @@
 #define stringify(V) _stringify(V)
 #define _stringify(V) #V
 
+void storeResultToFile(float elapsedf) {
+    FILE *file = fopen("vectorize_avx2.txt", "a");
+    if (file == NULL) {
+        printf("Failed to open the file.\n");
+        return;
+    }
+    
+    fprintf(file, "Elapsed execution time: %f sec; N: %d, I: %d,"
+           " __OP__: %s, __TYPE__: %s\n",
+           elapsedf, N, I, stringify(__OP__), stringify(__TYPE__));
+    
+    fclose(file);
+}
+
 int main(int argc, char *argv[]) {
     __TYPE__ A[N];
     __TYPE__ B[N];
@@ -84,5 +98,7 @@ int main(int argc, char *argv[]) {
            " __OP__: %s, __TYPE__: %s\n",
            elapsedf, N, I, stringify(__OP__), stringify(__TYPE__));
 
+    // Store to file
+    storeResultToFile(elapsedf);
     return total;
 }

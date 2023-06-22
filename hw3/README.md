@@ -1,5 +1,5 @@
-## Write-up 3: Provide a theory for why the compiler is generating dramatically different
-assembly.
+## Write-up 3: 
+Provide a theory for why the compiler is generating dramatically different assembly.
 
 The difference in the generated assembly code for the given code snippet can be attributed to several factors, including optimization strategies employed by the compiler, the specific architecture being targeted, and the specific optimizations enabled or disabled during compilation.
 
@@ -30,3 +30,4 @@ type for each array is uint32_t (32bits), so we get speedup 4 times
 AVX2 vector registers are 256 bits, so we get speedup 7-8 times
 
 ## Write-up 7:
+![image](https://github.com/xshen053/MIT6.172-PerformanceEngineering/assets/97472036/7ade9809-b5df-48d8-af8a-f4892c5a015e)

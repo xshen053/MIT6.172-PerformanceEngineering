@@ -1,0 +1,8 @@
+make
+Elapsed execution time: 0.077616 sec; N: 1024, I: 100000, __OP__: +, __TYPE__: uint32_t
+
+make VECTORIZE=1
+Elapsed execution time: 0.032019 sec; N: 1024, I: 100000, __OP__: +, __TYPE__: uint32_t
+
+make VECTORIZE=1 AVX2=1
+Elapsed execution time: 0.019471 sec; N: 1024, I: 100000, __OP__: +, __TYPE__: uint32_t

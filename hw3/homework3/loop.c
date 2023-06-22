@@ -39,7 +39,7 @@
 #define __OP__     +
 #endif
 #ifndef __TYPE__
-#define __TYPE__   uint32_t
+#define __TYPE__   uint64_t
 #endif
 
 // Define a way of automatically converting __OP__ and __TYPE__ into string literals
@@ -49,8 +49,8 @@
 void storeResultToFile(float elapsedf) {
     FILE *file = fopen("vectorize_avx2.txt", "a");
     if (file == NULL) {
-        printf("Failed to open the file.\n");
-        return;
+      printf("Failed to open the file.\n");
+      return;
     }
     
     fprintf(file, "Elapsed execution time: %f sec; N: %d, I: %d,"
@@ -99,6 +99,6 @@ int main(int argc, char *argv[]) {
            elapsedf, N, I, stringify(__OP__), stringify(__TYPE__));
 
     // Store to file
-    storeResultToFile(elapsedf);
+    // storeResultToFile(elapsedf);
     return total;
 }

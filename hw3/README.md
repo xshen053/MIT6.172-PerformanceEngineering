@@ -1,4 +1,4 @@
-Write-up 3: Provide a theory for why the compiler is generating dramatically different
+## Write-up 3: Provide a theory for why the compiler is generating dramatically different
 assembly.
 
 The difference in the generated assembly code for the given code snippet can be attributed to several factors, including optimization strategies employed by the compiler, the specific architecture being targeted, and the specific optimizations enabled or disabled during compilation.
@@ -28,3 +28,5 @@ SSE vector registers are usually 128 bits, since data
 type for each array is uint32_t (32bits), so we get speedup 4 times
 
 AVX2 vector registers are 256 bits, so we get speedup 7-8 times
+
+## Write-up 7:

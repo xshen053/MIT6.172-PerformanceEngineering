@@ -77,19 +77,23 @@ int main(int argc, char *argv[]) {
         B[j] = 0;
         C[j] = 0;
     }
+    __TYPE__* X = __builtin_assume_aligned(&A, 16);
+    __TYPE__* Y = __builtin_assume_aligned(&B, 16);
+    __TYPE__* Z = __builtin_assume_aligned(&C, 16);
 
     fasttime_t time1 = gettime();
 
     for (i = 0; i < I; i++) {
         for (j = 0; j < N; j++) {
-            C[j] = A[j] __OP__ B[j];
+            // C[j] = A[j] __OP__ B[j];
+            Z[j] = X[j] __OP__ Y[j];
         }
     }
 
     fasttime_t time2 = gettime();
 
     // Forces the compiler to not prune away any loop operations
-    total += C[rand_r(&seed) % N];
+    total += Z[rand_r(&seed) % N];
 
     double elapsedf = tdiff(time1, time2);
     // C concatenates adjacent string literals.  We take advantage of

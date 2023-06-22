@@ -40,10 +40,36 @@ AVX2 vector registers are 256 bits, so we get speedup 7-8 times
 `make ASSEMBLE=1 VECTORIZE=1` vs `make ASSEMBLE=1 VECTORIZE=1 AVX2=1`
 
 SSE  = 16 Bytes
-
 AVX2 = 32 Bytes
-![image](https://github.com/xshen053/MIT6.172-PerformanceEngineering/assets/97472036/07187b65-15b4-4588-a67e-e5808d8fda99)
-![image](https://github.com/xshen053/MIT6.172-PerformanceEngineering/assets/97472036/d6eb510d-3339-44b4-9ee3-363c76a3f321)
 
+## Write-up 8:
+
+
+## Write-up 9:
+What is the new speedup for the vectorized code, over the unvectorized code,
+and for the AVX2 vectorized code, over the unvectorized code, when you change __TYPE__
+to uint64_t, uint32_t, uint16_t and uint8_t? For each experiment, set __OP__ to + and do
+not change N.
+
+speedup increases as data type size decreases.
+
+`uint8_t`
+
+0.078576 --- 0.000074 ---- 0.000035
+
+speedup: 2245
+
+make sense, because when for unvectorized codes, the number of instructions needed to perform
+elementwise operations over an array of N elements is mostly independent of the data type width.
+
+`no matter how small your data type width is, there is only one operation every time`
+
+but for the vectorization, the smaller you data type width is, the more you can vectorize, 
+
+eg.
+
+256/64 = 4 elementwise operations / instruction
+
+256/8 = 32 elementwise operations / instruction
 
 

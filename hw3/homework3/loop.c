@@ -39,7 +39,7 @@
 #define __OP__     +
 #endif
 #ifndef __TYPE__
-#define __TYPE__   uint32_t
+#define __TYPE__   uint64_t
 #endif
 
 // Define a way of automatically converting __OP__ and __TYPE__ into string literals
@@ -74,7 +74,7 @@ int main(int argc, char *argv[]) {
     // cache and gives us a 'cleaner' view of speedup from vectorization.
     for (j = 0; j < N; j++) {
         A[j] = 0;  // 0 was chosen arbitrarily
-        B[j] = 0;
+        B[j] = 1;
         C[j] = 0;
     }
 

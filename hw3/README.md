@@ -31,10 +31,15 @@ AVX2 vector registers are 256 bits, so we get speedup 7-8 times
 
 ## Write-up 7:
 
-`make ASSEMBLE=1`
-
-`make ASSEMBLE=1 VECTORIZE=1`
+`make ASSEMBLE=1` vs `make ASSEMBLE=1 VECTORIZE=1`
 
 ![image](https://github.com/xshen053/MIT6.172-PerformanceEngineering/assets/97472036/7ade9809-b5df-48d8-af8a-f4892c5a015e)
 
 ![image](https://github.com/xshen053/MIT6.172-PerformanceEngineering/assets/97472036/5739e785-5217-4b1f-a1e9-6ef08bf8c089)
+
+`make ASSEMBLE=1 VECTORIZE=1` vs `make ASSEMBLE=1 VECTORIZE=1 AVX2=1`
+
+SSE  = 16 Bytes
+AVX2 = 32 Bytes
+
+

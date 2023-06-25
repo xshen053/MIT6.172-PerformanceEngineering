@@ -1,3 +1,24 @@
+## 2.1 Perf
+
+### Checkoff Item 1: Make note of one bottleneck.
+
+```
+# Overhead       Samples  Command  Shared Object      Symbol                          
+# ........  ............  .......  .................  ................................
+#
+    99.76%          2356  isort    isort              [.] isort
+     0.09%             2  isort    libc.so.6          [.] rand_r
+     0.06%             1  isort    [kernel.kallsyms]  [k] error_entry
+     0.04%             1  isort    [kernel.kallsyms]  [k] irq_exit_rcu
+     0.02%             1  isort    [kernel.kallsyms]  [k] perf_iterate_ctx
+     0.02%             1  isort    [kernel.kallsyms]  [k] amd_pmu_test_overflow_topbit
+     0.01%             1  isort    [kernel.kallsyms]  [k] restore_fpregs_from_fpstate
+     0.00%             1  perf-ex  [kernel.kallsyms]  [k] perf_event_exec
+     0.00%             5  isort    [kernel.kallsyms]  [k] mem_cgroup_handle_over_high
+     0.00%             5  perf-ex  [kernel.kallsyms]  [k] perf_lock_task_context
+```
+Obviously, bottleneck is isort function in the for loop 
+
 ## My Cpu Info
 ```
 desc: I1 cache:         32768 B, 64 B, 8-way associative
@@ -111,4 +132,25 @@ For Last-Level Cache (Instruction + Data):
 Total cache references (LL refs): 100,547,946 (99,922,250 reads + 625,696 writes)
 Total cache misses (LL misses): 79,724,455 (79,098,800 reads + 625,655 writes)
 Last-level cache miss rate (LL miss rate): 2.0% (2.1% reads + 0.3% writes)
+```
+
+## Analysis
+
+```
+  for (i = 0; i < U; i++) {
+    data[i] = i;
+  }
+
+```
+First time, you need to have access to data to store value to it, so will have some memory access
+
+Now, not quite sure how it behaves
+
+From chatgpt:
+```
+Data Loading: When the data array is accessed for the first time, such as during the loop in your code snippet, the cache behavior will depend on the specific access pattern and the size of the array.
+
+Cache Misses and Hits: Initially, the array elements will likely not be present in the cache, resulting in cache misses. As the program iterates over the array, cache lines containing the accessed elements may be loaded into the cache. The cache management hardware attempts to keep frequently accessed data in cache lines to improve performance.
+
+Cache Utilization: Whether the data array remains in the cache or gets evicted depends on the cache size, the size of the array, and the usage patterns of other data in the system. If the data array is small and fits entirely within the cache, it is more likely to be kept in cache for subsequent accesses. However, if the array is large and exceeds the cache capacity, cache eviction might occur, causing subsequent accesses to result in cache misses.
 ```
